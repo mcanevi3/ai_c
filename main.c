@@ -3,42 +3,6 @@
 
 #include "matrix.h"
 
-struct _neuron {
-	float weight;
-	float bias;
-};
-typedef struct _neuron neuron;
-
-neuron new_neuron(float weight,float bias){
-	neuron n={.weight=weight,.bias=bias};
-	return n;
-}
-
-void print_neuron(neuron n){
-	printf("Neuron weight:%f bias:%f\n",n.weight,n.bias);
-}
-
-struct _node{
-	void* data;
-	struct _node* next;
-};
-typedef struct _node node;
-
-node* new_node(void* data){
-	node* n=(node*)malloc(sizeof(node));
-	n->data=data;
-	n->next=NULL;
-	return n;	
-}
-
-void delete_node(node* n){
-	if(n)
-	{
-		free(n->data);
-		free(n);
-	}
-} 
-
 typedef float (*func)(float);
 
 float test_func(float x)
