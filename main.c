@@ -3,14 +3,6 @@
 
 #include "matrix.h"
 
-typedef float (*func)(float);
-
-float test_func(float x)
-{
-	return x*x;
-}
-
-
 int main(){
 	matrix* a=matrix_from_vec(2,2,(float[]){1,2,3,4});
 	matrix* b=matrix_from_vec(2,2,(float[]){1,2,3,4});
