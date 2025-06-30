@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "smatrix.h": "c",
+        "gradient_descent.h": "c"
+    }
+}
