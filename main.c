@@ -16,12 +16,13 @@ int main(){
 	matrix* b=matrix_from_vec(2,2,(float[]){1,2,3,4});
 	matrix* c;
 		
-	matrix_print(a);
-	matrix_print(b);
+	matrix_print(a);printf("\n");
+	matrix_print(b);printf("\n");
 	c=matrix_multiply(a,b);
-	matrix_print(c);
+	matrix_print(c);printf("\n");
 	c=matrix_add_scalar(c,2);
-	matrix_print(c);
+	matrix_print(c);printf("\n");
+	matrix_print(matrix_multiply_scalar(c,3));printf("\n");
 	
 	matrix_delete(a);
 	matrix_delete(b);

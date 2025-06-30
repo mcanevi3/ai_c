@@ -9,7 +9,6 @@ matrix* matrix_new(int rows,int cols){
 	m->rows=rows;
 	m->cols=cols;
 	return m;
-
 }
 
 void matrix_delete(matrix* m){
@@ -28,9 +27,11 @@ matrix* matrix_zeros(int rows,int cols){
 	}
 	return m;
 }
+
 matrix* matrix_zeros_like(matrix* m){
 	return matrix_zeros(m->rows,m->cols);
 }
+
 matrix* matrix_from_vec(int rows,int cols,float vec[])
 {
 	matrix* m=matrix_zeros(rows,cols);
@@ -38,6 +39,23 @@ matrix* matrix_from_vec(int rows,int cols,float vec[])
 		m->data[i]=vec[i];
 	}
 	return m;
+}
+
+matrix* matrix_add_scalar(matrix* a,float b){
+	matrix* res=matrix_zeros_like(a);
+	for(int i=0;i<a->rows*a->cols;i++){
+		res->data[i]=a->data[i]+b ;	
+	}
+	return res;
+}
+
+matrix* matrix_multiply_scalar(matrix* a,float b)
+{
+	matrix* res=matrix_zeros_like(a);
+	for(int i=0;i<a->rows*a->cols;i++){
+		res->data[i]=a->data[i]*b ;	
+	}
+	return res;
 }
 
 matrix* matrix_add(matrix* a,matrix* b){
@@ -50,14 +68,6 @@ matrix* matrix_add(matrix* a,matrix* b){
 	res=matrix_zeros_like(a);
 	for(int i=0;i<a->rows*a->cols;i++){
 		res->data[i]=a->data[i]+b->data[i];	
-	}
-	return res;
-}
-
-matrix* matrix_add_scalar(matrix* a,float b){
-	matrix* res=matrix_zeros_like(a);
-	for(int i=0;i<a->rows*a->cols;i++){
-		res->data[i]=a->data[i]+b ;	
 	}
 	return res;
 }
@@ -105,5 +115,4 @@ void matrix_print(matrix* m){
 		}
 		printf("\n");
    }
-
 }
