@@ -9,6 +9,6 @@ float grad_descent_min(func_scalar fun,func_scalar grad,float x0,float alpha,int
 float grad_descent_max(func_scalar fun,func_scalar grad,float x0,float alpha,int N);
 
 struct _matrix;
-typedef float (*func_mat)(struct _matrix);
-
+typedef struct _matrix* (*func_mat)(struct _matrix*);
+struct _matrix* grad_descent_min_mat(func_mat fun,func_mat grad,struct _matrix* x0,float alpha,int N);
 #endif
