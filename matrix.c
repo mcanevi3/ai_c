@@ -59,7 +59,7 @@ matrix* matrix_multiply_scalar(matrix* a,float b)
 }
 
 matrix* matrix_add(matrix* a,matrix* b){
-	matrix* res;
+	matrix* res=NULL;
 	if(a->rows!=b->rows || a->cols!=b->cols)
 	{
 		printf("Sizes need to match\n");
@@ -73,7 +73,7 @@ matrix* matrix_add(matrix* a,matrix* b){
 }
 
 matrix* matrix_substract(matrix* a,matrix* b){
-	matrix* res;
+	matrix* res=NULL;
 	if(a->rows!=b->rows || a->cols!=b->cols)
 	{
 		printf("Sizes need to match\n");
@@ -87,7 +87,7 @@ matrix* matrix_substract(matrix* a,matrix* b){
 }
 
 matrix* matrix_multiply(matrix* a,matrix* b){
-	matrix* res;
+	matrix* res=NULL;
 
 	if(a->cols!=b->rows){
 		printf("Not multiplicable!\n");

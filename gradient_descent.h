@@ -3,8 +3,12 @@
 
 #define DEBUG 0
 
+
 typedef float (*func_scalar)(float);
 float grad_descent_min(func_scalar fun,func_scalar grad,float x0,float alpha,int N);
 float grad_descent_max(func_scalar fun,func_scalar grad,float x0,float alpha,int N);
+
+struct _matrix;
+typedef float (*func_mat)(struct _matrix);
 
 #endif
