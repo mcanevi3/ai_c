@@ -56,7 +56,7 @@ smatrix smatrix_multiply_scalar(smatrix a,float b)
 }
 
 smatrix smatrix_add(smatrix a,smatrix b){
-	smatrix res;
+	smatrix res={};
 	if(a.rows!=b.rows || a.cols!=b.cols)
 	{
 		printf("Sizes need to match\n");
@@ -70,7 +70,7 @@ smatrix smatrix_add(smatrix a,smatrix b){
 }
 
 smatrix smatrix_substract(smatrix a,smatrix b){
-	smatrix res;
+	smatrix res={};
 	if(a.rows!=b.rows || a.cols!=b.cols)
 	{
 		printf("Sizes need to match\n");
@@ -84,7 +84,7 @@ smatrix smatrix_substract(smatrix a,smatrix b){
 }
 
 smatrix smatrix_multiply(smatrix a,smatrix b){
-	smatrix res;
+	smatrix res={};
 
 	if(a.cols!=b.rows){
 		printf("Not multiplicable!\n");
@@ -127,7 +127,7 @@ void smatrix_print(smatrix m){
 }
 
 smatrix smatrix_inverse(smatrix m) {
-    smatrix inv;
+    smatrix inv={};
     int n = m.rows;
 
     // Check square matrix
