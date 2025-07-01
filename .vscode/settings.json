@@ -2,6 +2,7 @@
     "files.associations": {
         "*.embeddedhtml": "html",
         "smatrix.h": "c",
-        "gradient_descent.h": "c"
+        "gradient_descent.h": "c",
+        "stdlib.h": "c"
     }
 }

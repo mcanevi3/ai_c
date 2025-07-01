@@ -2,25 +2,40 @@ CC := gcc
 CFLAGS := -Wall -O2
 # List all .c files in the directory
 SRC := $(wildcard *.c)
-# For main target: main.c + all except test.c
-MAIN_SRC := main.c $(filter-out test.c main.c, $(SRC))
-# For test target: test.c + all except main.c
-TEST_SRC := test.c $(filter-out main.c test.c, $(SRC))
-# Object files for main
+MAIN_SRC := main.c $(filter-out test.c main.c neurons.c, $(SRC))
+TEST_SRC := test.c $(filter-out main.c test.c neurons.c, $(SRC))
+NEURONS_SRC := neurons.c $(filter-out main.c test.c neurons.c, $(SRC))
+# Object files 
 MAIN_OBJ := $(MAIN_SRC:.c=.o)
-# Object files for test
 TEST_OBJ := $(TEST_SRC:.c=.o)
+NEURONS_OBJ := $(NEURONS_SRC:.c=.o)
 .PHONY: all clean
-all: main test
+all: main test neurons
 # Build main executable
 main: $(MAIN_OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
-
 # Build test executable
 test: $(TEST_OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
+# Build neurons executable
+neurons: $(NEURONS_OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
+show:
+	@echo OS is $(OS)
+	@echo RM is $(RM)
 # Compile .c to .o
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+	
+ifeq ($(OS),Windows_NT)
+RM = cmd /C del /Q /F
+EXE = .exe
+NULL = nul
+else
+RM = rm -f
+EXE =
+NULL = /dev/null
+endif
+
 clean:
-	rm -f *.o main test
+	-$(RM) *.o main$(EXE) test$(EXE) neurons$(EXE) 2>$(NULL)

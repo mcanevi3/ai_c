@@ -1,24 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "matrix.h"
+#include "smatrix.h"
 
 int main(){
-	matrix* a=matrix_from_vec(2,2,(float[]){1,2,3,4});
-	matrix* b=matrix_from_vec(2,2,(float[]){1,2,3,4});
-	matrix* c;
+	smatrix a=smatrix_from_vec(2,2,(float[]){1,2,3,4});
+	smatrix b=smatrix_from_vec(2,2,(float[]){1,2,3,4});
+	smatrix c;
 		
-	matrix_print(a);printf("\n");
-	matrix_print(b);printf("\n");
-	c=matrix_multiply(a,b);
-	matrix_print(c);printf("\n");
-	c=matrix_add_scalar(c,2);
-	matrix_print(c);printf("\n");
-	matrix_print(matrix_multiply_scalar(c,3));printf("\n");
+	smatrix_print(a);printf("\n");
+	smatrix_print(b);printf("\n");
+	c=smatrix_multiply(a,b);
+	smatrix_print(c);printf("\n");
+	c=smatrix_add_scalar(c,2);
+	smatrix_print(c);printf("\n");
+	smatrix_print(smatrix_multiply_scalar(c,3));printf("\n");
 	
-	matrix_delete(a);
-	matrix_delete(b);
-	matrix_delete(c);
+	smatrix_delete(&a);
+	smatrix_delete(&b);
+	smatrix_delete(&c);
 	return 0;
 
 }

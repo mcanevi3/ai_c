@@ -1,12 +1,22 @@
 #include <stdio.h>
+#include "smatrix.h"
 #include "neuron.h"
 
-neuron new_neuron(float weight,float bias){
-	neuron n={.weight=weight,.bias=bias};
+neuron neuron_new(smatrix weight,smatrix bias){
+	neuron n;
+	n.weight=weight;
+	n.bias=bias;
 	return n;
 }
 
-void print_neuron(neuron n){
-	printf("Neuron weight:%f bias:%f\n",n.weight,n.bias);
+void neuron_print(neuron n){
+	printf("Neuron weight:\n");
+	smatrix_print(n.weight);
+	printf("bias:\n");
+	smatrix_print(n.bias);
 }
 
+void neuron_delete(neuron* n){
+	smatrix_delete(&n->weight);
+	smatrix_delete(&n->bias);
+}
